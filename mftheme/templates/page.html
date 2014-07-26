@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load cms_tags staticfiles sekizai_tags menu_tags %}
+
+{% block header %}
+    <header class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="CollapseController">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" ng-click="isCollapsed = !isCollapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/" title="moonfruit"><img src="{{ STATIC_URL }}images/moonfruit-logo.jpg" alt="moonfruit" /></a>
+            </div>
+            <div class="navbar-collapse collapse" collapse="!isCollapsed">
+                <ul class="nav navbar-nav navbar-left">
+                    {% show_menu 0 1 100 100 "menu.html" %}
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% include 'login.html' %}
+                    <!--<li><span class="btn btn-primary font-regular">Login</span></li>-->
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </header>
+{% endblock header %}
+
+{% block content %}
+    {% placeholder "content" %}
+{% endblock content %}
+
+{% block footer %}
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    {% static_placeholder "footer column 1" %}
+                </div>
+                <div class="col-sm-2">
+                    {% static_placeholder "footer column 2" %}
+                </div>
+                <div class="col-sm-2">
+                    {% static_placeholder "footer column 3" %}
+                </div>
+                <div class="col-sm-2">
+                    {% static_placeholder "footer column 4" %}
+                </div>
+                <div class="col-sm-2">
+                    {% static_placeholder "footer column 5" %}
+                </div>
+                <div class="col-sm-2">
+                    {% static_placeholder "footer column 6" %}
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>Moonfruit - easy to use DIY website builder.<br/>Democratising web design and e-commerce for everyone.</p>
+                </div>
+                <div class="col-lg-2">
+                    <p>SiteMaker Software Ltd.</p>
+                </div>
+                <div class="col-lg-2">
+                    <p>50 Eastcastle Street<br/>London W1W 8EA</p>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+    </div>
+{% endblock footer %}
