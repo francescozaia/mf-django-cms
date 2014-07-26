@@ -48,7 +48,7 @@ WSGI_APPLICATION = 'mf.wsgi.application'
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'EN'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'Europe/London'
 
@@ -108,6 +108,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'mf', 'mftheme/templates'),
     os.path.join(BASE_DIR, 'mf', 'templates'),
 )
 
@@ -138,12 +139,13 @@ INSTALLED_APPS = (
     'djangocms_teaser',
     'djangocms_video',
     'reversion',
+    'mf.mftheme',
     'mf'
 )
 
 LANGUAGES = (
     ## Customize this
-    ('EN', gettext('EN')),
+    ('en', gettext('English')),
 )
 
 CMS_LANGUAGES = {
@@ -155,11 +157,11 @@ CMS_LANGUAGES = {
     },
     1: [
         {
-            'public': True,
-            'code': 'EN',
-            'hide_untranslated': False,
-            'name': gettext('EN'),
             'redirect_on_fallback': True,
+            'code': 'en',
+            'hide_untranslated': False,
+            'name': gettext('en'),
+            'public': True,
         },
     ],
 }
